@@ -28,6 +28,12 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
+	<script>
+		var $dir = '<?php echo get_template_directory_uri(); ?>';  
+		var $home = '<?php echo esc_url( home_url( '/' ) ); ?>';
+		var $pid = '<?php echo $post->ID ?>';
+	</script>
+
 	<?php wp_head(); ?>
 
 </head>
@@ -39,7 +45,11 @@
 
 			<div class="columns-12">
 				<div class="logo">
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="site-title">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<img src='<?php echo get_template_directory_uri("/"); ?>/img/Ridgeline_Logo@2x.png'>
+						</a>
+					</h1>
 				</div>
 				<nav class="main-navigation">
 					<?php if(has_nav_menu('main_nav')){

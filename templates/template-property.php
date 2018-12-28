@@ -1,6 +1,8 @@
-<?php get_header(); ?>
+<?php 
+/* Template Name: Property Template */
+get_header(); ?>
 
-<main id="content">
+<main id="content" class="property-single">
 
 	<div class="container">
 		<div class="row">

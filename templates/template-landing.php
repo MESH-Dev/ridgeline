@@ -1,6 +1,8 @@
-<?php get_header(); ?>
+<?php 
+/* Template Name: Landing Template */
+get_header(); ?>
 
-<main id="content">
+<main id="content" class="landing">
 
 	<div class="container">
 		<div class="row">

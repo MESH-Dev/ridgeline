@@ -1,6 +1,8 @@
-<?php get_header(); ?>
+<?php 
+/* Template Name: Contact Page Template */
+get_header(); ?>
 
-<main id="content">
+<main id="content" class="contact">
 
 	<div class="container">
 		<div class="row">

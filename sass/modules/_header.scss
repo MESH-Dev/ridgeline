@@ -1,0 +1,31 @@
+header{
+	.logo{
+		width:280px;
+		
+		.site-title{
+			img{
+			max-width:100%;
+			height:auto;
+		}
+		}
+		
+	}
+
+	.main-navigation{
+		display:inline-block;
+		text-align:right;
+		ul{
+			li{
+				display:inline-block;
+				margin-right:1.5em;
+				a{
+					font-size:2em;
+					color:$black;
+					text-decoration:none;
+					border-bottom:2px solid $green;
+				}
+			}
+		}
+		
+	}
+}
