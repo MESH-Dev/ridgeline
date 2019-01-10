@@ -1,154 +1,174 @@
+  var loadListings = function(listing_cat) {
 
 
-  // var loadMap = function() {
 
+    // Set the JSON file
+    //var listingsFile = $dir + '/helpers/listings.json';
+    var listingsFile = $home + '/wp-json/wp/v2/pages/'+$pid+'/';
+    //console.log("The listings.json file is at "+listingsfile);
 
-  //   // Set the JSON file
-  //   //var listingsFile = $dir + '/helpers/listings.json';
+    //Declare this outside of the getJSON loop
+    var map;
+    var bounds = new google.maps.LatLngBounds();
 
-  //   //Declare this outside of the getJSON loop
-  //   var map;
-
-  //   //var infoWindow;
-
-  //    var infoWindow = new google.maps.InfoWindow(), marker, i;
-
-  var iconUrl = '/img/mapmarker.svg';
-
-  // var icon = {
-  //   url: $dir+iconUrl, // url
-  //   scaledSize: new google.maps.Size(60, 60), // scaled size
-  //   origin: new google.maps.Point(0,0), // origin
-  //   anchor: new google.maps.Point(0, 0) // anchor
-  // };
-
-  var map; 
-
-
-  var mapStyles = $styles;
-    
-
+     
     //Keep this out of the getJSON loop
-    map = new google.maps.Map(document.getElementById('single-map'), {
-        zoom: 14,
-        center: new google.maps.LatLng($_lat, $_long),
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 11,
+        //center: new google.maps.LatLng(38.3607728,-81.6441211),
         scrollwheel:  false,
-        zoomControl: false,
+        zoomControl: true,
         zoomControlOptions: {
-          position: google.maps.ControlPosition.RIGHT_BOTTOM,
+          position: google.maps.ControlPosition.LEFT_BOTTOM,
         },
         mapTypeControl: false,
         scaleControl: false,
         streetViewControl: false,
         rotateControl: false,
         fullscreenControl: false,
-        styles:mapStyles      });
+        styles: $styles,
+      });
 
-    //Declaring this after the map variable is vitally important
-    marker = new google.maps.Marker({
-            //This is just the title of the blog post
-            //title: title,
-            position: new google.maps.LatLng($_lat, $_long),
-            map: map,
-            //Create the custom icon
-            icon:$dir+iconUrl,
-            
+    var infoWindow = new google.maps.InfoWindow();//, marker, i;
+
+    //Create variable needed for Spider marker clustering
+    var oms = new OverlappingMarkerSpiderfier(map, { 
+            markersWontMove: true, 
+            markersWontHide: true,
+            basicFormatEvents: true,
+            keepSpiderfied: true
           });
     
-    //Create variable needed for Spider marker clustering
-    // var oms = new OverlappingMarkerSpiderfier(map, { 
-    //         markersWontMove: true, 
-    //         markersWontHide: true,
-    //         basicFormatEvents: true
-    //       });
-    
     //The JSON loop, parses the listings.json file for the information we need to make the map
-    //jQuery.getJSON(listingsFile).success(function(data) {
-      //var ctr = 0;
+    jQuery.getJSON(listingsFile).success(function(data) {
+      var ctr = 1;
+      //_data = data['acf']['map_locations'];
+      var locs = data['acf']['map_locations'];
+
+      var _lat = data['acf']['property_latitude'];
+      var _long = data['acf']['property_longitude']
+
+      console.log(data['acf']['map_locations']);
+      //console.log(locs[i]);
+      //console.log(data);
             // Loop through the JSON file adding the markers
-//       for (var i = 0; i < data.length; i++) {
+      //for (var i = 0; i < locs.length; i++) {
+
+        // if(data[i]['listing_category'] !== listing_cat){
+
+        //   continue;
+        // }
+        // else if(data[i]['listing_category'] === listing_cat){
+        //var lat = locs[i]['location_latitude'];
+        //console.log(lat);
+        //var _long = locs[i]['location_longitude'];
+        //console.log(_long);
+
+          var icon, text, type_class;
+        var $basedir = $dir;
+        var icon = $basedir+'/img/map-icon.png';
+          // if(data[i]['primary_section'] == 'Outside &amp; In'){
+          //   icon = '/img/outdoors-map-icon.png';
+          //   type_class = 'outside-in-iw';
+          // }else if(data[i]['primary_section'] == 'Culture &amp; Heritage'){
+          //   icon = '/img/culture-map-icon.png';
+          //   type_class = 'culture-iw';
+          // }else if(data[i]['primary_section'] == 'Eat &amp; Drink'){
+          //   icon = '/img/eat-map-icon.png';
+          //   type_class = 'eat-drink-iw';
+          // }else if(data[i]['primary_section'] == 'Sleep &amp; Relax'){
+          //   icon = '/img/sleep-map-icon.png';
+          //   type_class = 'sleep-relax-iw';
+          // }else if(data[i]['primary_section'] == 'Shop In Town &amp; Out'){
+          //   icon = '/img/shop-map-icon.png';
+          //   type_class = 'shop-iw';
+          // }
           
-//         //Scoop out the titles from our JSON file
-//         var title = data[i]['title'];
-//         var color = data[i]['color'];
+        //Scoop out the titles from our JSON file
+        //var title = locs[i]['location_name'];
+        //var color = data[i]['color'];
 
-//         //Construct url parameters
-//         var $address, $city, $state;
+        //var slug = data[i]['slug'];
 
-//         var address = data[i]['address'];
-//         if (address != ''){
-//           $address = address;
-//         }else{
-//           $address = '';
-//         }
-//         var city =  data[i]['city'];
-//         if (city != ''){
-//           $city = city;
-//         }else{
-//           $city = '';
-//         }
-//         var zip = data[i]['zip'];
-//         if (zip != ''){
-//           $zip = zip;
-//         }else{
-//           $zip = '';
-//         }
-//         var lat = data[i]['coordinates'][0];
-//         var _long = data[i]['coordinates'][1];
+        // var address = data[i]['address'];
+        // if (address != ''){
+        //   $address = address;
+        // }else{
+        //   $address = '';
+        // }
+        // var city =  data[i]['city'];
+        // if (city != ''){
+        //   $city = city;
+        // }else{
+        //   $city = '';
+        // }
+        // var zip = data[i]['zip'];
+        // if (zip != ''){
+        //   $zip = zip;
+        // }else{
+        //   $zip = '';
+        // }
+        // var lat = locs[i]['location_latitude'];
+        // console.log(lat);
+        // var _long = locs[i]['location_longitude'];
+        // console.log(_long);
 
-//           $link = 'https://www.google.com/maps?saddr=My+location&daddr='+lat+','+_long;
+        
+        //$link = 'https://www.google.com/maps?saddr=My+location&daddr='+lat+','+_long;
+      
+          //Create the marker
+          marker = new google.maps.Marker({
+            //This is just the title of the blog post
+            //title: title,
+            //Style the dang label
+            // label: {
+            //   text:String(ctr),
+            //   color:"#ffffff",
+            //   fontSize:"2em",
+            //   fontFamily:"alternate-gothic-no-1-d"
+            // },
+            position: new google.maps.LatLng(_lat, _long),
+            map: map,
+            //Create the custom icon
+            // icon:{
+            //   path: google.maps.SymbolPath.CIRCLE,
+            //   scale: 15,
+            //   fillColor:String(color),
+            //   fillOpacity:1,
+            //   strokeColor:'transparent',
+            //  }
+            icon: icon,
+          });
 
-//         //Let's start using our icons 
-//         var icon, text, type_class;
-//         var basedir = $dir;
-//           if(data[i]['primary_section'] == 'Outside &amp; In'){
-//             icon = '/img/outdoors-map-icon.png';
-//             type_class = 'outside-in-iw';
-//           }else if(data[i]['primary_section'] == 'Culture &amp; Heritage'){
-//             icon = '/img/culture-map-icon.png';
-//             type_class = 'culture-iw';
-//           }else if(data[i]['primary_section'] == 'Eat &amp; Drink'){
-//             icon = '/img/eat-map-icon.png';
-//             type_class = 'eat-drink-iw';
-//           }else if(data[i]['primary_section'] == 'Sleep &amp; Relax'){
-//             icon = '/img/sleep-map-icon.png';
-//             type_class = 'sleep-relax-iw';
-//           }else if(data[i]['primary_section'] == 'Shop In Town &amp; Out'){
-//             icon = '/img/shop-map-icon.png';
-//             type_class = 'shop-iw';
-//           }
+          bounds.extend(marker.position);
+        //var infoWindowContent = '<div class="map-marker-title '+type_class+'"><span class="section">'+data[i]['primary_section'] +'</span><span class="list-title"><a href="#'+slug+'">'+ctr+ '. ' + data[i]['title'] + '</a></span><span class="directions cta"><a class="cta-link" href="'+$link+'" target="_blank">Get Directions &#10165;</a></span></div>';
 
-
-//         //Create the html for the infoWindow
-//         var infoWindowContent = '<div class="map-marker-title '+type_class+'"><span class="section">'+data[i]['primary_section'] +'</span><span class="list-title">'+ data[i]['title'] + '</span><span class="directions cta"><a class="cta-link" href="'+$link+'" target="_blank">Get Directions &#10165;</a></span></div>';
-       
-//           //Create the marker
-//           marker = new google.maps.Marker({
-//             //This is just the title of the blog post
-//             title: title,
-//             position: new google.maps.LatLng(data[i]['coordinates'][0], data[i]['coordinates'][1]),
-//             map: map,
-//             //Create the custom icon
-//             icon:basedir + icon,
-//           });
-
-//           //'click' has been changed to 'spider_click' to start marker clustering
-//           google.maps.event.addListener(marker, 'spider_click', (function(marker, infoWindowContent, infoWindow) {
-//                 return function() {
+        //'click' has been changed to 'spider_click' to start marker clustering
+         // google.maps.event.addListener(marker, 'spider_click', (function(marker, infoWindowContent, infoWindow) {
+         //        return function() {
                   
-//                     infoWindow.setContent(infoWindowContent);
-//                     infoWindow.open(map, marker);
-//                 }
-//             })(marker, infoWindowContent, infoWindow));
+         //            infoWindow.setContent(infoWindowContent);
+         //            infoWindow.open(map, marker);
+         //        }
+                
+         //    })(marker, infoWindowContent, infoWindow));
 
-//           //Add clustering to the markers
-//           oms.addMarker(marker);
+         //Add clustering to the markers
+         //oms.addMarker(marker);
 
-//       }//end for loop
+         
 
-//     }); //end $http.get
-//   }
+        //ctr++;
+        //} // end else
 
-// var full = jQuery('main').attr('data-category');
+      //}//end for loop
+      map.fitBounds(bounds);
+    }); //end $http.get
+  }
 
-// loadMap(full);
+var listing_cat = jQuery('.listing-grid').attr('data-category');
+//var full = jQuery('main').attr('data-category');
+//console.log(full);
+// console.log(listing_cat);
+
+loadListings(listing_cat);

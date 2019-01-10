@@ -7,15 +7,26 @@
 //enqueue scripts and styles *use production assets. Dev assets are located in  /css and /js
 function loadup_scripts() {
     wp_enqueue_script( 'mapStyle-js', get_template_directory_uri().'/js/map-styles.js', array('jquery'), '1.0.0', true );
-    if(is_front_page()){
+    if(is_front_page() || is_page_template('templates/template-property.php')){
         wp_enqueue_script( 'google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCbX_dvIvIBOUlSTYKA5lYPUHUkBAN-lb4', array('jquery'), '1.0.0', true );
-        wp_enqueue_script( 'mapfull-js', get_template_directory_uri().'/js/home-map.js', array('jquery'), '1.0.0', true );
+        //wp_enqueue_script( 'mapfull-js', get_template_directory_uri().'/js/home-map.js', array('jquery'), '1.0.0', true );
         
     }
+
+    if(is_front_page()){
+        wp_enqueue_script( 'mapfull-js', get_template_directory_uri().'/js/home-map.js', array('jquery'), '1.0.0', true );
+    }
+
+    if(is_page_template('templates/template-property.php')){
+        wp_enqueue_script( 'singlemap-js', get_template_directory_uri().'/js/single-map.js', array('jquery'), '1.0.0', true );
+    }
+    //wp_enqueue_script( 'vue-js', '//cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js', array('jquery'), '1.0.0', true );
+    //wp_enqueue_script( 'smoothstate-js', '//cdnjs.cloudflare.com/ajax/libs/smoothState.js/0.7.2/jquery.smoothState.min.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'slick-js', get_template_directory_uri().'/js/slick.min.js', array('jquery'), '1.0.0', true );
 	wp_enqueue_script( 'theme-js', get_template_directory_uri().'/js/mesh.js', array('jquery'), '1.0.0', true );
 
-    wp_enqueue_style( 'slick-css', get_template_directory_uri().'/css/slick-theme.css', array('jquery'), '1.0.0', true );   
+    wp_enqueue_style( 'slick-css', get_template_directory_uri().'/css/slick.css', '1.0.0', true );
+    wp_enqueue_style( 'slick-theme-css', get_template_directory_uri().'/css/slick-theme.css', '1.0.0', true );     
 }
 add_action( 'wp_enqueue_scripts', 'loadup_scripts' );
 

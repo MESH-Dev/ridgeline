@@ -12,10 +12,23 @@ function my_custom_login_logo() {
 		        h1 a {
 		          background-size: 227px 85px !important;
 		          margin-bottom: 20px !important;
-		          background-image:url('.get_bloginfo('template_directory').'/images/logo.png) !important; }
+		          background-image:url('.get_bloginfo('template_directory').'/img/logo.png) !important; }
 		    </style>';
 }
 
+//Add Global options page for ACF
+if( function_exists('acf_add_options_page') ) {
+
+  acf_add_options_page(array(
+    'page_title'  => 'Global Site Settings',
+    'menu_title'  => 'Global Site Settings',
+    'menu_slug'   => 'theme-general-settings',
+    'capability'  => 'edit_posts',
+    'redirect'    => false
+  ));
+}
+
+// Add ACF data to WP-json
 add_action( 'rest_api_init', 'slug_register_acf' );
 function slug_register_acf() {
   $post_types = get_post_types(['public'=>true], 'names');
@@ -34,10 +47,7 @@ function slug_get_acf( $object, $field_name, $request ) {
     return get_fields($object[ 'id' ]);
 }
 
-
-/// Workin on a map down here...
-
-
+//=========================================
 
 //Dynamically retrieve our lat lng info based on the address provided
 //** See Override above for situations where the use of this function is overriden per lisitng post
