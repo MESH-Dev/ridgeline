@@ -2,13 +2,15 @@
 
 //Use this file for wp menus, sidebars, image sizes, loadup scripts.
 
+//Hidden magic
+require get_template_directory() . '/inc/key.php';
 
 
 //enqueue scripts and styles *use production assets. Dev assets are located in  /css and /js
 function loadup_scripts() {
     wp_enqueue_script( 'mapStyle-js', get_template_directory_uri().'/js/map-styles.js', array('jquery'), '1.0.0', true );
     if(is_front_page() || is_page_template('templates/template-property.php')){
-        wp_enqueue_script( 'google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCbX_dvIvIBOUlSTYKA5lYPUHUkBAN-lb4', array('jquery'), '1.0.0', true );
+        wp_enqueue_script( 'google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.$API_KEY.'', array('jquery'), '1.0.0', true );
         //wp_enqueue_script( 'mapfull-js', get_template_directory_uri().'/js/home-map.js', array('jquery'), '1.0.0', true );
         
     }

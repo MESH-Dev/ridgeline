@@ -54,7 +54,7 @@ function slug_get_acf( $object, $field_name, $request ) {
 function getCoordinates($address){
           //var_dump($response)
           $address = urlencode($address);
-          $url = "https://maps.google.com/maps/api/geocode/json?sensor=false&address=" . $address . "&key=AIzaSyDXR8bORut0sXyoust5FWnhi-9TA8TWktw";
+          //$url = "https://maps.google.com/maps/api/geocode/json?sensor=false&address=" . $address . "&key=API_KEY";
           $response = file_get_contents($url);
           $json = json_decode($response,true);
           //Check to see if we received a good response from GoogleMaps
@@ -84,6 +84,8 @@ function filter_ptags_on_images($content)
 // we want it to be run after the autop stuff... 10 is default.
 add_filter('the_content', 'filter_ptags_on_images');
 
+//Prevent images from wrapping in p tags in the ACF WYSIWYG
+//Courtesy: https://support.advancedcustomfields.com/forums/topic/removing-paragraph-tags-from-wysiwyg-fields/
 remove_filter ('acf_the_content', 'wpautop');
 
 ?>
