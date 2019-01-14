@@ -17,13 +17,17 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="columns-12">
+			<!-- <div class="columns-12"> -->
 				<!-- <nav class="main-navigation">
 					<?php //wp_nav_menu( array('menu_id' => 'footer-menu', 'theme_location' => 'footer-menu') ); ?>
 				</nav> -->
-				Copyright &copy; <?php echo date('Y'); ?> Ridgline, Inc.
-					<p>Site by <a href="http://meshfresh.com" target="_blank">MESH</a></p>
-			</div><!-- End of Footer -->
+				<div class="columns-6">
+					Copyright &copy; <?php echo date('Y'); ?> Ridgline, Inc.
+				</div>
+				<div class="columns-6 signature">
+					Site by <a href="http://meshfresh.com" target="_blank">MESH</a>
+				</div>
+			<!-- </div> --><!-- End of Footer -->
 		</div>
 	</div>
 

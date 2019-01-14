@@ -1,4 +1,11 @@
 .site-footer{
 	//background-color:$green;
 	//color:$white;
+	font-size:1.4em;
+	padding:1em 0 2em 0;
+	@include interstate;
+	color:$grey;
+	.signature{
+		text-align:right;
+	}
 }

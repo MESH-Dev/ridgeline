@@ -25,6 +25,11 @@
   font-weight:700;
 }
 
+@mixin interstate{
+  font-family: interstate, sans-serif;
+  font-weight:700;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 2rem;
@@ -53,5 +58,5 @@ p {
   line-height: 1.428; 
   margin-top: 0;
   margin-bottom: 1.8rem;
- 
+  @include astoria-light;
 }

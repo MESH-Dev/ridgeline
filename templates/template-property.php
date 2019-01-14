@@ -101,36 +101,42 @@ get_header(); ?>
 					</div>
 				</div>
 				
+				<section class="map-section section">
 				<div class="section-title-wrapper">
 					<h2 class="section-title">View A Detailed map</h2>
 					<img class="trigger" src='<?php echo get_template_directory_uri("/"); ?>/img/rl-arrow_up_green.png'>
 				</div>
-
-				<div class="row">
-					<div class="columns-6 single-map">
-						<div id="map" style="width:100%; height:500px;">
-						</div>
-					</div>
-
-					<div class="columns-6">
-						<div class="map-description">
-							<?php echo $detail; ?>
-						</div>
-					</div>
-				</div>
 				
+				
+					<div class="row">
+						<div class="columns-6 single-map">
+							<div id="map" style="width:100%; height:500px;">
+							</div>
+						</div>
+
+						<div class="columns-6">
+							<div class="map-description">
+								<?php echo $detail; ?>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<section class="faq-section section closed">
 				<div class="section-title-wrapper">
 					<h2 class="section-title">FAQ</h2>
 					<img class="trigger" src='<?php echo get_template_directory_uri("/"); ?>/img/rl-arrow_up_green.png'>
 				</div>
-
-				<div class="row">
-					<div class="columns-6">
-						<div class="faq">
-							<?php echo $faqs; ?>
+				
+				
+					<div class="row content">
+						<div class="columns-6">
+							<div class="faq">
+								<?php echo $faqs; ?>
+							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 
 				<div class="row sp-carousel">
 					<?php echo get_template_part('partials/tenants_carousel'); ?>
@@ -141,20 +147,26 @@ get_header(); ?>
 
 			
 		</div>
-	</div>
-	<div class="contact">
-					<div class="row">
-						<?php 
-						$contact_intro = get_field('listing_agent_introduction');
-						$form = get_field('listing_agent_contact_form'); ?>
-						<div class="columns-6">
-							<?php echo $contact_intro; ?>
-						</div>
-						<div class="columns-6">
-							<?php echo do_shortcode($form); ?>
-						</div>
+	</div><!-- end container -->
+	<div class="contact agent-contact">
+		<div class="row">
+			<div class="wrapper">
+				<?php 
+				$contact_intro = get_field('listing_agent_introduction');
+				$form = get_field('listing_agent_contact_form'); ?>
+				<div class="columns-6 greeting">
+					<div class="content">
+					<h2><?php echo $contact_intro; ?></h2>
 					</div>
 				</div>
+				<div class="columns-6">
+					<div class="content">
+					<?php echo do_shortcode($form); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </main><!-- End of Content -->
 

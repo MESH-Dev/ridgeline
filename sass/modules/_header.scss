@@ -31,6 +31,11 @@ header{
 					display:inline-block;
 					margin-right:1.5em;
 					vertical-align:bottom;
+					&.current_page_item{
+						a{
+							color:$green;
+						}
+					}
 					a{
 						font-size:1.4em;
 						color:$black;
@@ -39,6 +44,11 @@ header{
 						text-transform:uppercase;
 						color:$grey;
 						//border-bottom:2px solid $green;
+						&:hover,
+						&:focus,
+						&:active{
+							color:$green;
+						}
 					}
 				}
 			}
@@ -59,6 +69,19 @@ header{
 				padding:0;
 				margin-right:1.5em;
 				//line-height:1;
+
+				&.current-page-ancestor,
+				&.current_page_item{
+					a{
+						-webkit-transform: translateY(10%);
+    					transform: translateY(10%);
+
+    					&:before{
+    						webkit-transform: translateY(-100%) translateY(2px);
+    						transform: translateY(-100%) translateY(2px);
+    					}
+					}
+				}
 				a{
 					font-size:2em;
 					color:$black;

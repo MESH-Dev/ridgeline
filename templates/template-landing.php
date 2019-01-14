@@ -7,9 +7,11 @@ get_header(); ?>
 	<div class="container">
 		<div class="row">
 			<div class=""><!-- columns-9 -->
-				<h1 class="page-title"><?php echo the_title(); ?></h1>
+				
 				<?php //$banner_img = the_post_thumbnail_url('short-banner'); var_dump($banner_img);?>
-				<div class="landing-banner" style="height:550px; width:100%; background-image:url('<?php echo the_post_thumbnail_url('short-banner'); ?>');"></div>
+				<div class="landing-banner" style="text-align:center; height:550px; width:100%; background-image:url('<?php echo the_post_thumbnail_url('short-banner'); ?>');">
+					<h1 class="landing-title"><?php echo the_title(); ?></h1>
+				</div>
 
 				<?php if (have_rows('property_listings')):
 				$cnt = 0;
@@ -29,7 +31,7 @@ get_header(); ?>
 								<div class="content">
 									<h3 class="p-title"><?php echo $p_title; ?></h3>
 									<p><?php echo $p_desc; ?></p>
-									<a class="p-view" href="<?php echo $p_link; ?>">View this property</a>
+									<a class="p-view pulser" href="<?php echo $p_link; ?>">View the property</a>
 								</div>
 							</div>
 							<div class="columns-9 no-padding img-wrapper img" style="background-image:url('<?php echo $bg_img_url; ?>');">
@@ -39,9 +41,9 @@ get_header(); ?>
 							</div>
 							<div class="columns-3 no-padding desc-mobile">
 								<div class="content">
-									<h3 class="p-title"><?php echo $p_title; ?> <?php echo $cnt; ?></h3>
+									<h3 class="p-title"><?php echo $p_title; ?></h3>
 									<p><?php echo $p_desc; ?></p>
-									<a class="p-view" href="<?php echo $p_link; ?>">View this property</a>
+									<a class="p-view" href="<?php echo $p_link; ?>">View the property</a>
 								</div>
 							</div>
 						</div>
@@ -60,7 +62,7 @@ get_header(); ?>
 								<div class="content">
 									<h3 class="p-title"><?php echo $p_title; ?></h3>
 									<p><?php echo $p_desc; ?></p>
-									<a class="p-view" href="<?php echo $p_link; ?>">View this property</a>
+									<a class="p-view" href="<?php echo $p_link; ?>">View the property</a>
 								</div>
 							</div>
 						</div>
@@ -69,16 +71,10 @@ get_header(); ?>
 			 	<?php } endwhile; endif; ?>
 			</div>
 
-			<!-- <div class="columns-3"> -->
-
-				<!-- Change this to repeater of custom fields -->
-
-				<?php //get_sidebar(); ?>
-			<!-- </div> --> 
-
+			
 		</div>
-	</div>
-
+	</div><!-- end container -->
+	<?php echo get_template_part('partials/global_contact_form'); ?>
 </main><!-- End of Content -->
 
 <?php get_footer(); ?>

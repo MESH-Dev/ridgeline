@@ -83,7 +83,7 @@ jQuery(document).ready(function($){
 
 //$('body').css('display', 'none');
 
-$('body').fadeIn(1000);
+$('body').fadeIn(250);
 
 $(function(){
     $("body").delay(500).fadeIn(1000);
@@ -114,6 +114,96 @@ $('.listing-row').each(function(i, el){
 		}, 200 * i);
 	}
 	});
+
+$('a.pulser').on('mouseover',function(){
+	$(this).addClass('pulse animated');
+	$(this).on('mouseout', function(){
+		$(this).removeClass('pulse');
+	});
+});
+
+//Force divs in homepage grid to be square
+//Setup variables to hold our sizes
+var gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW;
+
+//Grab the width of each element
+function gi_resize(){
+  gi2 = $('.grid-item-width2 ').width();
+  gi3 = $('.grid-item-width3 ').width();
+  //console.log(gi3);
+  gi4 = $('.grid-item-width4 ').width();
+  gi5 = $('.grid-item-width5 ').width();
+  gi6 = $('.grid-item-width6 ').width();
+  gi7 = $('.grid-item-width7 ').width();
+  cp4 = $('.columns-4').width();
+  cp5 = $('.columns-5').width();
+  cp6 =  $('.columns-6.eq ').width();
+  //console.log(cp6);
+  //cp6_alt = $('.columns-6')
+  cp7 = $('.columns-7.trip').width();
+  //$wW = $(window).width();
+
+
+  //return gi2, gi3, gi4;
+}
+//Run the function above at document ready and on a window resize event
+ $(document).ready(gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW));
+ $(window).resize(gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW));
+
+//Apply our widths to the height of selected elements either on load, or on resize
+function _resize(){
+  gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW);
+   $(window).resize(gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7,$wW));
+
+ //  console.log("Width 2: "+gi2);
+	// console.log("Width 3: "+gi3);
+	//  console.log("Width 4: "+gi4);
+  $('.grid-item-width2').css({height: (gi2)});
+  $('.grid-item-width2.nest').css({height: (gi2*2)});
+  $('.grid-item-width2.nest .nested').css({height: gi2});
+  $('.grid-item-width3').css({height: gi3});
+  $('.grid-item-width4').css({height: gi4});
+  $('.grid-item-width5').css({height: gi5})
+  $('.grid-item-width6').css({height: (gi6*.5)});
+  $('.width6-diamond').css({height: (gi6*0.4)});
+  $('.columns-4.child-links').css({height:cp4});
+  $('.columns-6.promo').css({height: (cp6*.5)});
+  $('.columns-6.cpromo').css({height: (cp6*.66)});
+  //console.log(cp6*.66);
+  $('.columns-6 .width6-diamond').css({height: (cp6*0.4)});
+  $('.columns-5.event-feed').css({height: (cp5)});
+  $('.columns-7.trip').css({height: cp5});
+  $('.grid-item-width6.nest').css({height: gi2});
+  $('.grid-item-width6.nest .nested').css({height: gi2});
+  $('.grid-item-width7').css({height: (gi5)});
+  $('.sidebar-io').css({height:cp4});
+  console.log($wW);
+}
+
+//Run the function on load & on resize
+_resize();
+$(window).resize(_resize);
+
+$('.the-content').find('img').unwrap('p');
+
+$l_clk=0;
+$('.section-title-wrapper .trigger').each(function(){
+      $(this).click(function(){
+      $l_clk++;
+
+      console.log('clicked');
+      //$(this).closest('.row.show-listing').addClass('fast');
+      if($l_clk == 1){
+        $(this).css({'transform':'rotate(180deg)'});
+        $(this).parent().parent().parent().find('.show-listing').slideDown(400);
+      }else{
+        $(this).css({'transform':'rotate(0)'});
+        $(this).parent().parent().parent().find('.show-listing').slideUp(400);
+
+        $l_clk = 0;
+      }
+    });
+  });
 // $('a').click(function(event) {
 
 // event.preventDefault();
