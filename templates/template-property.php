@@ -161,7 +161,9 @@ get_header(); ?>
 				</div>
 				<div class="columns-6">
 					<div class="content">
+					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 					<?php echo do_shortcode($form); ?>
+					<?php endwhile; ?>
 					</div>
 				</div>
 			</div>

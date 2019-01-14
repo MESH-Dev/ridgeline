@@ -88,4 +88,20 @@ add_filter('the_content', 'filter_ptags_on_images');
 //Courtesy: https://support.advancedcustomfields.com/forums/topic/removing-paragraph-tags-from-wysiwyg-fields/
 remove_filter ('acf_the_content', 'wpautop');
 
+add_filter( 'wp_insert_post_data' , 'filter_post_data' , 99, 2 );
+function filter_post_data( $data , $post ) {
+    if ( $data['post_type'] == 'post' ) {
+        $content = stripslashes($data['post_content']);
+        $attributes = shortcode_parse_atts($content);
+        $post = isset($attributes['id']) ? get_post($attributes['id']) : "";
+
+        if ( !empty($post) ) {
+            $data['post_title'] = esc_html($post->post_title);
+            $data['post_name'] = esc_html($post->post_name);    
+        }   
+    }
+
+    return $data;
+}
+
 ?>
