@@ -5,7 +5,22 @@
 	padding:1em 0 2em 0;
 	@include interstate;
 	color:$grey;
+	@media ($bp-smaller-than-tablet){
+		text-align:center;
+	}
 	.signature{
 		text-align:right;
+		@media ($bp-smaller-than-tablet){
+			text-align:unset;
+		}
+		a{
+			color:$grey;
+			&:active,
+			&:focus,
+			&:hover{
+				color:$green;
+				text-decoration:none;
+			}
+		}
 	}
 }

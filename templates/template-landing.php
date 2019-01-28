@@ -25,40 +25,45 @@ get_header(); ?>
 				 if($cnt%2 == 0){
 				 ?>
 				<div class="row listing-row <?php if($cnt > 1){ echo 'hide'; } ?>">
-					<div class="listing right"> 
-						<div class="listing-wrapper">
-							<div class="columns-3 no-padding desc">
+					<div class="listing-wrapper"> 
+						<div class="listing right">
+							<div class="columns-8 panel no-padding img-wrapper" style="background-image:url('<?php //echo $bg_img_url; ?>');">
+								<div class="img" style="background-image:url('<?php echo $bg_img_url; ?>');" >
+
+								</div>
+							</div>
+							<div class="columns-4 panel no-padding desc">
 								<div class="content">
 									<h3 class="p-title"><?php echo $p_title; ?></h3>
 									<p><?php echo $p_desc; ?></p>
 									<a class="p-view pulser" href="<?php echo $p_link; ?>">View the property</a>
 								</div>
 							</div>
-							<div class="columns-9 no-padding img-wrapper img" style="background-image:url('<?php echo $bg_img_url; ?>');">
+							<!-- <div class="columns-9 panel no-padding img-wrapper img" style="background-image:url('<?php echo $bg_img_url; ?>');"> -->
 								<!-- <div class="img" style="background-image:url('<?php echo $bg_img_url; ?>');" >
 
 								</div> -->
-							</div>
-							<div class="columns-3 no-padding desc-mobile">
+							<!-- </div> -->
+							<!-- <div class="columns-3 no-padding desc-mobile">
 								<div class="content">
 									<h3 class="p-title"><?php echo $p_title; ?></h3>
 									<p><?php echo $p_desc; ?></p>
 									<a class="p-view" href="<?php echo $p_link; ?>">View the property</a>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
 				<?php }else{ ?>
 				<div class="row listing-row <?php if($cnt > 1){ echo 'hide'; } ?>">
-					<div class="listing left">
-						<div class="listing-wrapper">
-							<div class="columns-9 no-padding img-wrapper img" style="background-image:url('<?php echo $bg_img_url; ?>');">
-								<!-- <div class="img" style="background-image:url('<?php echo $bg_img_url; ?>');" >
+					<div class="listing-wrapper">
+						<div class="listing left">
+							<div class="columns-8 no-padding img-wrapper" style="background-image:url('<?php //echo $bg_img_url; ?>');">
+								<div class="img" style="background-image:url('<?php echo $bg_img_url; ?>');" >
 
-								</div> -->
+								</div>
 							</div>
-							<div class="columns-3 no-padding desc">
+							<div class="columns-4 no-padding desc">
 								<div class="content">
 									<h3 class="p-title"><?php echo $p_title; ?></h3>
 									<p><?php echo $p_desc; ?></p>

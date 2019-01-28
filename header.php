@@ -37,16 +37,24 @@
 		var $dir = '<?php echo get_template_directory_uri(); ?>';  
 		var $home = '<?php echo esc_url( home_url( '/' ) ); ?>';
 		var $pid = '<?php echo $post->ID ?>';
+		<?php 
+			$imgs = '/img/Ridgeline_Arrow.svg';
+			$directory = get_template_directory();
+		    $arrow  = $directory.$imgs;
+		    $arrow_icon = file_get_contents($arrow);
+		    $arrow_clean = str_replace(array("\r\n", "\r", "\n"), '',$arrow_icon);
+		?>
+		var $arrow_clean = '<?php echo $arrow_clean; ?>';
 	</script>
 
 	<script type='text/javascript'>
-	(function (d, t) {
-	  var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
-	  bh.type = 'text/javascript';
-	  bh.src = 'https://www.bugherd.com/sidebarv2.js?apikey=jwhoomxxc0thcc5tk1gsng';
-	  s.parentNode.insertBefore(bh, s);
-	  })(document, 'script');
-	</script>
+	// (function (d, t) {
+	//   var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
+	//   bh.type = 'text/javascript';
+	//   bh.src = 'https://www.bugherd.com/sidebarv2.js?apikey=jwhoomxxc0thcc5tk1gsng';
+	//   s.parentNode.insertBefore(bh, s);
+	//   })(document, 'script');
+	// </script>
 
 	<?php wp_head(); ?>
 

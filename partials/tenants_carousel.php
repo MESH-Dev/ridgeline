@@ -12,7 +12,7 @@
 		$t_img = get_sub_field('t_panel');
 		$t_img_url = $t_img['sizes']['medium'];
 ?>
-<div class="tenant" style="height:200px; vertical-align:middle; display:inline-block;">
+<div class="tenant" style="vertical-align:middle; display:inline-block;">
 	<img src="<?php echo $t_img_url; ?>">
 </div>
 

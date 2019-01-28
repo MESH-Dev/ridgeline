@@ -5,6 +5,9 @@
 include('functions/start.php');
 
 include('functions/clean.php');
+include get_template_directory() . '/inc/key.php';
+
+add_option( 'google_api_key', $API_KEY, '', 'yes' );
 
 //Custon wp-admin logo
 function my_custom_login_logo() {

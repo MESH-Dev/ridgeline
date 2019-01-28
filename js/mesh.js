@@ -11,7 +11,28 @@ jQuery(document).ready(function($){
   //* Microinterations (css)
 
   //Slick slider
-  //$(document).ready(function(){
+  //Get our svg for our arrow:
+   //$directory = $dir;
+    //$imgs = '/img/Ridgeline_Arrow.svg';
+    //$arrow  = $directory+$imgs;
+    $the_arrow = '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 183.2"><defs><style>.cls-1{fill:#4a9b2d;}</style></defs><title>Ridgeline_Arrow</title><path class="cls-1" d="M8.82,172c10-2.13,19.79-4.52,29.28-7.19,26.25-7.39,50.06-16.93,68.63-28.92,14-9.06,25.07-19.52,31.9-31.52a57.59,57.59,0,0,0,7.76-28.89V12.42a57.92,57.92,0,0,1-9.32,31.5c-6.9,10.93-17.36,20.54-30.38,28.94C85.82,86.32,58.33,96.68,28.23,104.38q-9.56,2.45-19.41,4.54Z"/><path class="cls-1" d="M291.18,172c-10-2.13-19.79-4.52-29.28-7.19-26.25-7.39-50.06-16.93-68.63-28.92-14-9.06-25.07-19.52-31.9-31.52a57.59,57.59,0,0,1-7.76-28.89V12.42a57.92,57.92,0,0,0,9.32,31.5c6.9,10.93,17.36,20.54,30.38,28.94,20.87,13.46,48.36,23.82,78.46,31.52q9.56,2.45,19.41,4.54Z"/></svg>'
+    $arrow = $arrow_clean;
+    //console.log($arrow);
+    //$arrow_icon = file_get_contents($arrow);
+    //$arrow_clean = str_replace(array("\r\n", "\r", "\n"), '',$arrow_icon);
+function file_get_contents(filename) {
+	fetch(filename).then((resp) => resp.text()).then(function(data) {
+		console.log(data);
+		return data;
+	});
+}
+
+
+
+	// var $pointer = file_get_contents($arrow);
+	// console.log($pointer);
+	//.console.log(file_get_contents($arrow));
+
       $('.carousel.home').slick({
 		dots: true,
 		infinite: true,
@@ -26,6 +47,7 @@ jQuery(document).ready(function($){
       });
 
       var  tenants = $('.carousel.tenants');
+
       tenants.slick({
 		dots: false,
 		slidesToShow: 3,
@@ -38,6 +60,7 @@ jQuery(document).ready(function($){
 		autoplay: false,
 		cssEase: 'linear',
 		arrows:true,
+		nextArrow: '<button type="img" id="slick-pointer" class="slick-next appended">'+$arrow+'</button>',
 		//pauseOnHover: true,
 		//pauseOnFocus: true,
 		//pauseOnDots: true,
@@ -80,6 +103,8 @@ jQuery(document).ready(function($){
 		  }
 
 });
+
+//document.getElementById("slick-pointer").innerHTML = file_get_contents($arrow);
 
 //$('body').css('display', 'none');
 
@@ -124,7 +149,7 @@ $('a.pulser').on('mouseover',function(){
 
 //Force divs in homepage grid to be square
 //Setup variables to hold our sizes
-var gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW;
+var gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW, $lr_h;
 
 //Grab the width of each element
 function gi_resize(){
@@ -141,19 +166,21 @@ function gi_resize(){
   //console.log(cp6);
   //cp6_alt = $('.columns-6')
   cp7 = $('.columns-7.trip').width();
+  $lr_h = $('.listing-row').height();
+  console.log($lr_h);
   //$wW = $(window).width();
 
 
   //return gi2, gi3, gi4;
 }
 //Run the function above at document ready and on a window resize event
- $(document).ready(gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW));
- $(window).resize(gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW));
+ $(document).ready(gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW, $lr_h));
+ $(window).resize(gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW, $lr_h));
 
 //Apply our widths to the height of selected elements either on load, or on resize
 function _resize(){
-  gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW);
-   $(window).resize(gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7,$wW));
+  gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7, $wW, $lr_h);
+   $(window).resize(gi_resize(gi2, gi3, gi4, gi5, gi6, gi7, cp4, cp5, cp6, cp7,$wW, $lr_h));
 
  //  console.log("Width 2: "+gi2);
 	// console.log("Width 3: "+gi3);
@@ -177,6 +204,7 @@ function _resize(){
   $('.grid-item-width6.nest .nested').css({height: gi2});
   $('.grid-item-width7').css({height: (gi5)});
   $('.sidebar-io').css({height:cp4});
+  $('.listing-row .img').css({height:$lr_h});
   console.log($wW);
 }
 

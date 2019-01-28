@@ -10,9 +10,11 @@ get_header(); ?>
 			<?php $c_title = get_field('carousel_title'); ?>
 			
 			<h1 class="title"><?php echo $c_title; ?></h1>
-
+			<div class="carousel-wrapper">
+				<div class="curtain" aria-hidden="true"></div>
 			<?php if (have_rows('carousel_panels')) : ?>
 			<div class="carousel home"><!-- columns-9 -->
+				<!-- <div class="curtain" aria-hidden="true"></div> -->
 			<?php 
 					while(have_rows('carousel_panels')):the_row();
 
@@ -24,7 +26,7 @@ get_header(); ?>
 			<?php endwhile; ?>
 			</div>
 			<?php endif; ?>
-			
+			</div>
 			</div>
 		</div>
 		
