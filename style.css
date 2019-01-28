@@ -826,35 +826,48 @@ header {
 header .logo {
   width: 280px;
 }
-/* line 11, sass/modules/_header.scss */
+@media (max-width: 750px) {
+  /* line 8, sass/modules/_header.scss */
+  header .logo {
+    margin: 0 auto;
+  }
+}
+/* line 13, sass/modules/_header.scss */
 header .logo .site-title {
   margin: 0;
   padding: 0;
 }
-/* line 14, sass/modules/_header.scss */
+/* line 16, sass/modules/_header.scss */
 header .logo .site-title img {
   max-width: 100%;
   height: auto;
   line-height: 1;
 }
-/* line 24, sass/modules/_header.scss */
+@media (max-width: 750px) {
+  /* line 16, sass/modules/_header.scss */
+  header .logo .site-title img {
+    text-align: center;
+    margin: 1rem 0;
+  }
+}
+/* line 31, sass/modules/_header.scss */
 header .gateway-nav nav {
   width: 100%;
   text-align: right;
   padding: 0;
   margin: 0;
 }
-/* line 30, sass/modules/_header.scss */
+/* line 37, sass/modules/_header.scss */
 header .gateway-nav nav ul li {
   display: inline-block;
   margin-right: 1.5em;
   vertical-align: bottom;
 }
-/* line 36, sass/modules/_header.scss */
+/* line 43, sass/modules/_header.scss */
 header .gateway-nav nav ul li.current_page_item a {
   color: #4C9A35;
 }
-/* line 40, sass/modules/_header.scss */
+/* line 47, sass/modules/_header.scss */
 header .gateway-nav nav ul li a {
   font-size: 1.4em;
   color: #4A4A4A;
@@ -864,21 +877,27 @@ header .gateway-nav nav ul li a {
   text-transform: uppercase;
   color: #9B9B9B;
 }
-/* line 48, sass/modules/_header.scss */
+/* line 55, sass/modules/_header.scss */
 header .gateway-nav nav ul li a:hover, header .gateway-nav nav ul li a:focus, header .gateway-nav nav ul li a:active {
   color: #4C9A35;
 }
-/* line 60, sass/modules/_header.scss */
+/* line 67, sass/modules/_header.scss */
 header .main-navigation {
   display: inline-block;
   width: 100%;
   text-align: right;
 }
-/* line 65, sass/modules/_header.scss */
+@media (max-width: 750px) {
+  /* line 67, sass/modules/_header.scss */
+  header .main-navigation {
+    text-align: center;
+  }
+}
+/* line 75, sass/modules/_header.scss */
 header .main-navigation ul {
   display: inline-block;
 }
-/* line 67, sass/modules/_header.scss */
+/* line 77, sass/modules/_header.scss */
 header .main-navigation ul li {
   display: inline-block;
   margin: 0;
@@ -886,22 +905,22 @@ header .main-navigation ul li {
   margin-left: 4em;
 }
 @media only screen and (max-width: 480px) {
-  /* line 67, sass/modules/_header.scss */
+  /* line 77, sass/modules/_header.scss */
   header .main-navigation ul li {
     margin-left: 1.5em;
   }
 }
-/* line 79, sass/modules/_header.scss */
+/* line 89, sass/modules/_header.scss */
 header .main-navigation ul li.current-page-ancestor a, header .main-navigation ul li.current_page_item a {
   -webkit-transform: translateY(10%);
   transform: translateY(10%);
 }
-/* line 83, sass/modules/_header.scss */
+/* line 93, sass/modules/_header.scss */
 header .main-navigation ul li.current-page-ancestor a:before, header .main-navigation ul li.current_page_item a:before {
   webkit-transform: translateY(-100%) translateY(2px);
   transform: translateY(-100%) translateY(2px);
 }
-/* line 89, sass/modules/_header.scss */
+/* line 99, sass/modules/_header.scss */
 header .main-navigation ul li a {
   font-size: 2em;
   color: #4A4A4A;
@@ -920,17 +939,17 @@ header .main-navigation ul li a {
   padding-top: 7px;
   line-height: 1.5;
 }
-/* line 109, sass/modules/_header.scss */
+/* line 119, sass/modules/_header.scss */
 header .main-navigation ul li a:hover, header .main-navigation ul li a:active, header .main-navigation ul li a:focus {
   -webkit-transform: translateY(10%);
   transform: translateY(10%);
 }
-/* line 115, sass/modules/_header.scss */
+/* line 125, sass/modules/_header.scss */
 header .main-navigation ul li a:hover:before, header .main-navigation ul li a:active:before, header .main-navigation ul li a:focus:before {
   webkit-transform: translateY(-100%) translateY(2px);
   transform: translateY(-100%) translateY(2px);
 }
-/* line 121, sass/modules/_header.scss */
+/* line 131, sass/modules/_header.scss */
 header .main-navigation ul li a:before {
   position: absolute;
   top: 0;
