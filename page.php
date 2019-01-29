@@ -12,7 +12,7 @@
 							$count = count(get_sub_field('content_column'));
 							$column = "";
 							if(have_rows('content_column')):?>
-							<div class="row">
+							<div class="row page-section">
 							<?php
 								while(have_rows('content_column')):the_row();
 								if($count == 3){

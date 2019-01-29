@@ -11,9 +11,10 @@
 
 		$t_img = get_sub_field('t_panel');
 		$t_img_url = $t_img['sizes']['medium'];
+		$t_alt = $t_img['alt'];
 ?>
 <div class="tenant" style="vertical-align:middle; display:inline-block;">
-	<img src="<?php echo $t_img_url; ?>">
+	<img alt="<?php echo $t_alt; ?>" src="<?php echo $t_img_url; ?>">
 </div>
 
 <?php endwhile; ?>

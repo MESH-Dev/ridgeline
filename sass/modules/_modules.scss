@@ -186,10 +186,25 @@ main{
 		}
 		
 	}
+	
+	.open{
+		.section-content{
+			display:block;
+		}
+	}
+
+	.hidden{
+		.section-content{
+			display:none;
+		}
+	}
 
 	.closed{
+		.section-content{
+			//display:none;
+		}
 		.section-title-wrapper{
-			img{
+			.trigger{
 				transform:rotate(180deg);
 			}
 		}
@@ -209,6 +224,7 @@ main{
 			width:55px;
 			height:auto;
 			cursor:pointer;
+			z-index:10;
 			transition: .3s .1s ease-in-out;
 			&:active,
 			&:focus,

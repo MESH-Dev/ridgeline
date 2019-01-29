@@ -214,63 +214,31 @@ $(window).resize(_resize);
 
 $('.the-content').find('img').unwrap('p');
 
-$l_clk=0;
 $('.section-title-wrapper .trigger').each(function(){
+
+	  var parent = $(this).parent().parent();
+
+	  if(parent.hasClass('open')){
+	  	$l_clk=0;
+	  	parent.find('.section-content').slideDown();
+	  };
       $(this).click(function(){
+      console.log($l_clk);
       $l_clk++;
 
-      console.log('clicked');
-      //$(this).closest('.row.show-listing').addClass('fast');
-      if($l_clk == 1){
+      if($(this).parent().parent().hasClass('open')){
         $(this).css({'transform':'rotate(180deg)'});
-        $(this).parent().parent().parent().find('.show-listing').slideDown(400);
-      }else{
+        $(this).parent().parent().find('.section-content').slideUp("slow");
+        $(this).parent().parent().addClass('closed').removeClass('open');
+        //$(this).parent().parent().parent().find('.show-listing').slideDown(400);
+      }else if($(this).parent().parent().hasClass('closed')){
         $(this).css({'transform':'rotate(0)'});
-        $(this).parent().parent().parent().find('.show-listing').slideUp(400);
-
+        //$(this).parent().parent().parent().find('.show-listing').slideUp(400);
+        $(this).parent().parent().find('.section-content').slideDown("slow");
+        $(this).parent().parent().removeClass('hidden closed').addClass('open');
         $l_clk = 0;
       }
     });
   });
-// $('a').click(function(event) {
-
-// event.preventDefault();
-
-// newLocation = this.href;
-
-// $('body').fadeOut(1000, newpage);
-
-// });
-
-
-
-// function newpage() {
-
-// window.location = newLocation;
-
-// }
-
-//});
-
-
-  //     $('.carousel.tenants').slick({
-		// dots: false,
-		// slidesToShow: 4,
-		// slidesToMove:1,
-		// responsive:false,
-		// infinite: true,
-		// speed: 500,
-		// //fade: false,
-		// autoplay: false,
-		// cssEase: 'linear',
-		// arrows:true,
-		// //pauseOnHover: true,
-		// //pauseOnFocus: true,
-		// //pauseOnDots: true,
-		// variableWidth: true,
-		// swipeToSlide: true,
-		// swipe:true
-  //     });
-   // });
 
 });
