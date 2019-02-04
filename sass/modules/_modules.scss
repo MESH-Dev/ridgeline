@@ -261,6 +261,7 @@ main{
 		span{
 			@include astoria-light;
 			text-transform:none;
+			letter-spacing:.1rem;
 		}
 	}
 
