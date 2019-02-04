@@ -7,7 +7,8 @@
 			<div class="columns-6 greeting">
 				<div class="content">
 					<h2>
-						Leave your email for any private showings or inquiries and we’ll get back to you!
+						Leave your email for any private showings or inquiries and we’ll get back to you! <br />
+						304.744.2759
 					</h2>
 				</div>
 			</div>

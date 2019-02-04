@@ -89,7 +89,7 @@
 										'walker'          => ''
 									); wp_nav_menu( $defaults );
 								}else{
-									echo "<p><em>main_nav</em> doesn't exist! Create it and it'll render here.</p>";
+									echo "<p><em>gateway_nav</em> doesn't exist! Create it and it'll render here.</p>";
 								} ?>
 						</ul>
 					</nav>

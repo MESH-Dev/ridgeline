@@ -22,7 +22,8 @@
 					<?php //wp_nav_menu( array('menu_id' => 'footer-menu', 'theme_location' => 'footer-menu') ); ?>
 				</nav> -->
 				<div class="columns-6">
-					Copyright &copy; <?php echo date('Y'); ?> Ridgline, Inc.
+					Copyright &copy; <?php echo date('Y'); ?> Ridgline, Inc.<br />
+					A Monarch Real Estate Company
 				</div>
 				<div class="columns-6 signature">
 					Site by <a href="http://meshfresh.com" target="_blank">MESH</a>
