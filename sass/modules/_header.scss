@@ -36,7 +36,7 @@ header{
 			ul{
 				li{
 					display:inline-block;
-					margin-right:1.5em;
+					margin-leftt:1.5em;
 					vertical-align:bottom;
 
 					&.current_page_item{
@@ -89,6 +89,7 @@ header{
 					a{
 						-webkit-transform: translateY(10%);
     					transform: translateY(10%);
+    					color:$grey-alt;
 
     					&:before{
     						webkit-transform: translateY(-100%) translateY(2px);

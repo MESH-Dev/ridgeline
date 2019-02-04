@@ -10,6 +10,7 @@ get_header(); ?>
 				
 				<?php //$banner_img = the_post_thumbnail_url('short-banner'); var_dump($banner_img);?>
 				<div class="landing-banner" style="text-align:center; height:550px; width:100%; background-image:url('<?php echo the_post_thumbnail_url('short-banner'); ?>');">
+					<div class="curtain" aria-hidden="true"></div>
 					<h1 class="landing-title"><?php echo the_title(); ?></h1>
 				</div>
 
