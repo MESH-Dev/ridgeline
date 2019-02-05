@@ -143,8 +143,8 @@ main{
 			}
 		}
 		.tenant{
-			height:150px;
-			width:150px;
+			height:90px;
+			width:90px;
 			text-align:center;
 			margin-right:8em;
 			img{
@@ -350,8 +350,9 @@ main{
 		width:100%;
 		top:45%;
 		margin:0;
-		@include astoria-bold;
+		@include astoria-regular;
 		letter-spacing:.5px;
+		font-size:5.6rem;
 		line-height:1;
 		transform: translateY(-50%);
 	}
@@ -569,6 +570,7 @@ main{
 		h2{
 			width:95%;
 			font-size:3.2rem;
+			color:$white;
 			@media ($bp-smaller-than-tablet){
 				width:100%;
 			}
@@ -916,8 +918,14 @@ main{
 		max-width:100%;
 		height:auto;
 	}
-	h1,h2,h3,h4,h5,h6,p{
+	h1,h3,h4,h6,p{
 		color:$grey;
+	}
+	h2, h5{
+		color:$green;
+	}
+	h2{
+		@include astoria-regular;
 	}
 	strong{
 		@include astoria-bold;

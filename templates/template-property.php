@@ -103,7 +103,7 @@ get_header(); ?>
 				
 				<section class="map-section section open">
 				<div class="section-title-wrapper">
-					<h2 class="section-title">View A Detailed map</h2>
+					<h2 class="section-title">View A detailed map.</h2>
 					<div class="trigger">
 						<?php echo file_get_contents(get_template_directory_uri("/").'/img/Ridgeline_Arrow.svg'); ?>
 					</div>

@@ -37,7 +37,7 @@ get_header(); ?>
 		</section>
 		
 		<section class="page-section">
-			<h2 class="section-title">See where we're located</h2>
+			<h2 class="section-title">See where we're located.</h2>
 			<div id="map" style="width:100%; height:600px;"></div>
 		</section>	
 		
