@@ -571,8 +571,10 @@ main{
 			width:95%;
 			font-size:3.2rem;
 			color:$white;
+			margin-bottom:0;
 			@media ($bp-smaller-than-tablet){
 				width:100%;
+				margin-bottom:2rem;
 			}
 		}
 	}
@@ -993,6 +995,19 @@ main.text{
 				padding-right:4em;
 			}
 		}
+	}
+
+	.contact{
+		.row{
+			margin-bottom:0;
+		}
+	}
+	
+}
+
+.contact{
+	.row{
+		margin-bottom:0;
 	}
 }
 
