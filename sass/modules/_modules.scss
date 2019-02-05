@@ -13,9 +13,9 @@ body{
 }
 
 main{
-	margin-top:130px;
+	margin-top:150px;
 	@media ($bp-smaller-than-tablet){
-		margin-top:230px;
+		margin-top:250px;
 	}
 }
 
@@ -671,13 +671,13 @@ main{
 }
 
 .m-partners{
-	padding:0 3em 1em 3em;
+	padding:0 0 1em 3em;
 	@media ($bp-smaller-than-tablet){
 		padding: 2rem 0;
 		text-align:center;
 	}
 	.m-partner{
-		padding-right:5%;
+		//padding-right:5%;
 		height:200px;
 		
 		a{
@@ -685,6 +685,13 @@ main{
 			&:focus,
 			&:active{
 				opacity:.5;
+			}
+		}
+
+		&:nth-of-type(n+2){
+			text-align:right;
+			img{
+				max-width:40%;
 			}
 		}
 		&:first-child{
@@ -696,7 +703,7 @@ main{
 		}
 
 		&.middle{
-			text-align:center;
+			//text-align:center;
 		}
 
 		// &:last-child{
@@ -733,7 +740,7 @@ main{
 
 			&:nth-of-type(n+2){
 				img{
-					max-width:60%;
+					max-width:50%;
 				}
 			}
 		}
