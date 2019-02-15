@@ -131,7 +131,7 @@
             map: map,
             //Create the custom icon
             icon:{
-              icon: icon,
+              url: icon,
               scaledSize: new google.maps.Size(45, 45)
               // path: google.maps.SymbolPath.CIRCLE,
               // scale: 15,
