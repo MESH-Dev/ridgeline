@@ -66,7 +66,7 @@
 
           var icon, text, type_class;
         var $basedir = $dir;
-        var icon = $basedir+'/img/map-icon.png';
+        var icon = $basedir+'/img/map-icon.svg';
           // if(data[i]['primary_section'] == 'Outside &amp; In'){
           //   icon = '/img/outdoors-map-icon.png';
           //   type_class = 'outside-in-iw';
@@ -130,14 +130,16 @@
             position: new google.maps.LatLng(_lat, _long),
             map: map,
             //Create the custom icon
-            // icon:{
-            //   path: google.maps.SymbolPath.CIRCLE,
-            //   scale: 15,
-            //   fillColor:String(color),
-            //   fillOpacity:1,
-            //   strokeColor:'transparent',
-            //  }
-            icon: icon,
+            icon:{
+              icon: icon,
+              scaledSize: new google.maps.Size(45, 45)
+              // path: google.maps.SymbolPath.CIRCLE,
+              // scale: 15,
+              // fillColor:String(color),
+              // fillOpacity:1,
+              // strokeColor:'transparent',
+             }
+            //icon: icon,
           });
 
           bounds.extend(marker.position);

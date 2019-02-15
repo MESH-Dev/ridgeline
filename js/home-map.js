@@ -63,7 +63,7 @@
 
           var icon, text, type_class;
         var $basedir = $dir;
-        var icon = $basedir+'/img/map-icon.png';
+        var icon = $basedir+'/img/map-icon.svg';
           // if(data[i]['primary_section'] == 'Outside &amp; In'){
           //   icon = '/img/outdoors-map-icon.png';
           //   type_class = 'outside-in-iw';
@@ -125,16 +125,19 @@
             //   fontFamily:"alternate-gothic-no-1-d"
             // },
             position: new google.maps.LatLng(lat, _long),
+            //scaledSize: new google.maps.Size(50, 50),
             map: map,
             //Create the custom icon
-            // icon:{
-            //   path: google.maps.SymbolPath.CIRCLE,
-            //   scale: 15,
-            //   fillColor:String(color),
-            //   fillOpacity:1,
-            //   strokeColor:'transparent',
-            //  }
-            icon: icon,
+            icon:{
+              url:icon,
+              scaledSize: new google.maps.Size(45, 55)
+              // path: google.maps.SymbolPath.CIRCLE,
+              // scale: 15,
+              // fillColor:String(color),
+              // fillOpacity:1,
+              // strokeColor:'transparent',
+             }
+            //icon: icon,
           });
 
           bounds.extend(marker.position);
